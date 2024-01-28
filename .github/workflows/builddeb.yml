@@ -1,0 +1,47 @@
+name: Build
+
+on:
+  workflow_dispatch:
+    
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@main
+
+      - name: Checkout RootHide/theos
+        uses: actions/checkout@main
+        with:
+          repository: RootHide/theos
+          ref: master
+          submodules: recursive
+          path: theos
+
+      - name: Checkout chrisharper22/sdks
+        uses: actions/checkout@main
+        with:
+          repository: chrisharper22/sdks
+          ref: main
+          sparse-checkout: iPhoneOS16.2.sdk
+          path: theos/sdks
+
+      - name: Build Package 
+        run: |
+          brew install make xz ldid 
+          export THEOS=theos
+          set -e
+
+          make clean
+          make package FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless
+          make clean
+          make package FINALPACKAGE=1
+
+          make clean
+          make package FINALPACKAGE=1 PACKAGE_FORMAT=ipa
+          make clean
+          make package FINALPACKAGE=1 PACKAGE_FORMAT=ipa UNSANDBOX=1
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: ./*.tipa
