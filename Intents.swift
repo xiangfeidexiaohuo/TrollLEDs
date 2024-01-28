@@ -3,9 +3,9 @@ import UIKit
 
 @available(iOS 16.0, *)
 struct AmberOnIntent: AppIntent {
-    static let title: LocalizedStringResource = "Amber On"
+    static let title: LocalizedStringResource = "开暖光"
     static let description = IntentDescription(
-        "Turn on all amber LEDs",
+        "打开所有暖光LED",
         categoryName: "Device"
     )
     static let openAppWhenRun: Bool = true
@@ -22,9 +22,9 @@ struct AmberOnIntent: AppIntent {
 
 @available(iOS 16.0, *)
 struct WhiteOnIntent: AppIntent {
-    static let title: LocalizedStringResource = "White On"
+    static let title: LocalizedStringResource = "开冷光"
     static let description = IntentDescription(
-        "Turn on all white LEDs",
+        "打开所有冷光LED",
         categoryName: "Device"
     )
     static let openAppWhenRun: Bool = true
@@ -41,9 +41,9 @@ struct WhiteOnIntent: AppIntent {
 
 @available(iOS 16.0, *)
 struct AllOnIntent: AppIntent {
-    static let title: LocalizedStringResource = "All On"
+    static let title: LocalizedStringResource = "全开"
     static let description = IntentDescription(
-        "Turn on all LEDs",
+        "打开所有LED",
         categoryName: "Device"
     )
     static let openAppWhenRun: Bool = true
@@ -60,9 +60,9 @@ struct AllOnIntent: AppIntent {
 
 @available(iOS 16.0, *)
 struct AllOffIntent: AppIntent {
-    static let title: LocalizedStringResource = "All Off"
+    static let title: LocalizedStringResource = "全关"
     static let description = IntentDescription(
-        "Turn off all LEDs",
+        "关闭所有LED",
         categoryName: "Device"
     )
     static let openAppWhenRun: Bool = true
@@ -79,27 +79,27 @@ struct AllOffIntent: AppIntent {
 
 @available(iOS 16.0, *)
 struct ManualIntent: AppIntent {
-    static let title: LocalizedStringResource = "Manual"
+    static let title: LocalizedStringResource = "手动"
     static let description = IntentDescription(
-        "Configure LEDs levels manually (0 - 255) (For Quad-LEDs devices only)",
+        "手动配置LED亮度(0-255)(仅适用于四LED设备)",
         categoryName: "Device"
     )
     static let openAppWhenRun: Bool = true
 
-    @Parameter(title: "Cool LED 0", inclusiveRange: (0, 255))
+    @Parameter(title: "冷光LED 0", inclusiveRange: (0, 255))
     var coolLED0: Int
 
-    @Parameter(title: "Cool LED 1", inclusiveRange: (0, 255))
+    @Parameter(title: "冷光LED 1", inclusiveRange: (0, 255))
     var coolLED1: Int
 
-    @Parameter(title: "Warm LED 0", inclusiveRange: (0, 255))
+    @Parameter(title: "暖光LED 0", inclusiveRange: (0, 255))
     var warmLED0: Int
 
-    @Parameter(title: "Warm LED 1", inclusiveRange: (0, 255))
+    @Parameter(title: "暖光LED 1", inclusiveRange: (0, 255))
     var warmLED1: Int
     
     static var parameterSummary: some ParameterSummary {
-        Summary("Configure LEDs levels to (\(\.$coolLED0), \(\.$coolLED1), \(\.$warmLED0), \(\.$warmLED1))")
+        Summary("将LED亮度配置为 (\(\.$coolLED0), \(\.$coolLED1), \(\.$warmLED0), \(\.$warmLED1))")
     }
 
     func perform() async throws -> some IntentResult {

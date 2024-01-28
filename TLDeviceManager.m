@@ -31,7 +31,7 @@
 
 - (BOOL)setupStream {
     if (initialized) return YES;
-    NSString *clientDescription = @"TrollLEDs application";
+    NSString *clientDescription = @"TrollLEDs 应用程序";
     if ([BWFigCaptureDeviceVendorClass respondsToSelector:@selector(copyDefaultVideoDeviceWithStealingBehavior:forPID:clientIDOut:withDeviceAvailabilityChangedHandler:)]) {
         deviceRef = [BWFigCaptureDeviceVendorClass copyDefaultVideoDeviceWithStealingBehavior:1 forPID:pid clientIDOut:&client withDeviceAvailabilityChangedHandler:NULL];
         if ([BWFigCaptureDeviceVendorClass respondsToSelector:@selector(copyStreamForFlashlightWithPosition:deviceType:forDevice:)])
@@ -46,7 +46,7 @@
         else if ([vendor respondsToSelector:@selector(registerClientWithPID:stealingBehavior:deviceSharingWithOtherClientsAllowed:deviceAvailabilityChangedHandler:)])
             client = [vendor registerClientWithPID:pid stealingBehavior:1 deviceSharingWithOtherClientsAllowed:YES deviceAvailabilityChangedHandler:NULL];
         else {
-            _currentError = @"Could not register client, try restarting the app?";
+            _currentError = @"无法注册客户端，请尝试重新启动应用程序？";
             return NO;
         }
         int error;
@@ -68,7 +68,7 @@
             [inv invoke];
             [inv getReturnValue:&streamRef];
         } else {
-            _currentError = @"Could not get device, try restarting the app?";
+            _currentError = @"无法获取设备，请尝试重新启动应用程序？";
             return NO;
         }
     }
@@ -83,7 +83,7 @@
     } else
         stream = [vendor copyStreamForFlashlightWithPosition:1 deviceType:2 forDevice:device];
     if (!streamSetProperty && !stream) {
-        _currentError = @"Could not get stream, try restarting the app?";
+        _currentError = @"无法获取流，请尝试重新启动应用程序？";
         return NO;
     }
     initialized = YES;

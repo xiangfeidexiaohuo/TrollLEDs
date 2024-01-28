@@ -1,0 +1,39 @@
+name: Build
+
+on:
+  workflow_dispatch:
+    
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@main
+
+      - name: Checkout RootHide/theos
+        uses: actions/checkout@main
+        with:
+          repository: RootHide/theos
+          ref: master
+          submodules: recursive
+          path: theos
+
+      - name: Checkout xybp888/iOS-SDKs
+        uses: actions/checkout@main
+        with:
+          repository: xybp888/iOS-SDKs
+          ref: master
+          sparse-checkout: iPhoneOS17.0.sdk
+          path: theos/sdks
+          
+      - name: Build Package 
+        run: |
+          brew install make ldid 
+          export THEOS=theos
+          set -e
+
+          ./build.sh
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: ./*.tipa

@@ -8,7 +8,7 @@ struct TrollLEDsAppShortcutsProvider: AppShortcutsProvider {
             phrases: [
                 "Turn on amber LEDs with \(.applicationName)"
             ],
-            shortTitle: "Amber On",
+            shortTitle: "开暖光",
             systemImageName: "flashlight.on.circle.fill"
         )
         AppShortcut(
@@ -16,7 +16,7 @@ struct TrollLEDsAppShortcutsProvider: AppShortcutsProvider {
             phrases: [
                 "Turn on white LEDs with \(.applicationName)"
             ],
-            shortTitle: "White On",
+            shortTitle: "开冷光",
             systemImageName: "flashlight.on.circle.fill"
         )
         AppShortcut(
@@ -24,7 +24,7 @@ struct TrollLEDsAppShortcutsProvider: AppShortcutsProvider {
             phrases: [
                 "Turn on all LEDs with \(.applicationName)"
             ],
-            shortTitle: "All On",
+            shortTitle: "全开",
             systemImageName: "flashlight.on.circle.fill"
         )
         AppShortcut(
@@ -32,7 +32,7 @@ struct TrollLEDsAppShortcutsProvider: AppShortcutsProvider {
             phrases: [
                 "Turn off all LEDs with \(.applicationName)"
             ],
-            shortTitle: "All Off",
+            shortTitle: "全关",
             systemImageName: "flashlight.off.circle.fill"
         )
         AppShortcut(
@@ -40,7 +40,7 @@ struct TrollLEDsAppShortcutsProvider: AppShortcutsProvider {
             phrases: [
                 "Configure LEDs levels manually with \(.applicationName)"
             ],
-            shortTitle: "Manual",
+            shortTitle: "手动",
             systemImageName: "flashlight.on.circle.fill"
         )
     }

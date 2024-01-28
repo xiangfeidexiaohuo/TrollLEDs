@@ -163,20 +163,20 @@
     if ([_deviceManager isLegacyLEDs]) {
         switch (index) {
             case 0:
-                return @"Torch Level";
+                return @"冷光";
             case 1:
-                return @"Warmth";
+                return @"暖光";
         }
     } else {
         switch (index) {
             case 0:
-                return @"Cool LED 0";
+                return @"冷光LED 0";
             case 1:
-                return @"Cool LED 1";
+                return @"冷光LED 1";
             case 2:
-                return @"Warm LED 0";
+                return @"暖光LED 0";
             case 3:
-                return @"Warm LED 1";
+                return @"暖光LED 1";
         }
     }
     return @"";
@@ -188,7 +188,7 @@
 }
 
 - (NSString *)switchLabel {
-    return locked ? @"On: Only TrollLEDs can control the LEDs" : @"Off: Release the LEDs to other apps (this may take few seconds)";
+    return locked ? @"开: 只有TrollLED可以控制LED" : @"关: 释放LED控制权(可能需要几秒)\n🇨🇳刀刀";
 }
 
 - (void)configureTableView {
@@ -224,7 +224,7 @@
     _ledCountConstraints = [[NSMutableArray alloc] init];
     _ledCountLabelConstraints = [[NSMutableArray alloc] init];
 
-    _ledCount = [[UISegmentedControl alloc] initWithItems:@[@"Dual", @"Quad"]];
+    _ledCount = [[UISegmentedControl alloc] initWithItems:@[@"双", @"四"]];
     _ledCount.translatesAutoresizingMaskIntoConstraints = NO;
     _ledCount.selectedSegmentIndex = [self isQuadLEDs] ? 1 : 0;
     [_ledCount addTarget:self action:@selector(ledCountChanged:) forControlEvents:UIControlEventValueChanged];
@@ -233,7 +233,7 @@
 
     _ledCountLabel = [[UILabel alloc] init];
     _ledCountLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    _ledCountLabel.text = @"Physical LED Count";
+    _ledCountLabel.text = @"物理LED数量";
     _ledCountLabel.textColor = [UIColor systemGrayColor];
     _ledCountLabel.textAlignment = NSTextAlignmentCenter;
     _ledCountLabel.font = [UIFont systemFontOfSize:14];

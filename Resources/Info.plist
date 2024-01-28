@@ -96,7 +96,7 @@
             <key>UIApplicationShortcutItemIconFile</key>
             <string>AmberOn</string>
             <key>UIApplicationShortcutItemTitle</key>
-            <string>Amber On</string>
+            <string>开暖光</string>
             <key>UIApplicationShortcutItemType</key>
             <string>com.ps.TrollLEDs.AmberOn</string>
         </dict>
@@ -104,7 +104,7 @@
             <key>UIApplicationShortcutItemIconFile</key>
             <string>WhiteOn</string>
             <key>UIApplicationShortcutItemTitle</key>
-            <string>White On</string>
+            <string>开冷光</string>
             <key>UIApplicationShortcutItemType</key>
             <string>com.ps.TrollLEDs.WhiteOn</string>
         </dict>
@@ -112,7 +112,7 @@
             <key>UIApplicationShortcutItemIconFile</key>
             <string>AllOn</string>
             <key>UIApplicationShortcutItemTitle</key>
-            <string>All On</string>
+            <string>全开</string>
             <key>UIApplicationShortcutItemType</key>
             <string>com.ps.TrollLEDs.AllOn</string>
         </dict>
